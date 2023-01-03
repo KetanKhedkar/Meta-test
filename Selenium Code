@@ -1,0 +1,27 @@
+package Grooming;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Test {
+	
+	public static void main(String[] args) {
+		
+		System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://ditaxpresso.com/#/contactus");
+		driver.findElement(By.name("First Name")).sendKeys("Ketan");
+		driver.findElement(By.name("Last Name")).sendKeys("Khedkar");
+		driver.findElement(By.name("Phone")).sendKeys("8390141503");
+		driver.findElement(By.name("Email")).sendKeys("ketanvkhedkar@gmail.com");
+		driver.findElement(By.name("Title")).sendKeys("Selenium");
+		driver.findElement(By.name("Description")).sendKeys("My name is Ketan Khedkar");
+		driver.findElement(By.id("formsubmit")).click();
+	}
+
+}
